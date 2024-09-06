@@ -4,6 +4,14 @@ import sys
 if len(sys.argv) != 2:
     print("Usage : python3 chksec.py [target binary file]")
     sys.exit()
+else:
+    try:
+        with open(sys.argv[1], 'r') as file:
+            pass    
+    except FileNotFoundError:
+            print("No such file.")
+            sys.exit()
+            
 file = str(sys.argv[1])
 
 #command
@@ -67,3 +75,4 @@ try:
 
 except subprocess.CalledProcessError as e:
     print(f"Error : {e}")
+    
